@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32407.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaerskApi", "MaerskApi\MaerskApi.csproj", "{A9AF7305-A3E9-442F-B855-4ADB3F4E3BD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMaerskApi", "TestMaerskApi\TestMaerskApi.csproj", "{70705A1E-075F-42E4-B6BF-E02FDF3AAD34}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A9AF7305-A3E9-442F-B855-4ADB3F4E3BD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A9AF7305-A3E9-442F-B855-4ADB3F4E3BD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A9AF7305-A3E9-442F-B855-4ADB3F4E3BD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A9AF7305-A3E9-442F-B855-4ADB3F4E3BD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70705A1E-075F-42E4-B6BF-E02FDF3AAD34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70705A1E-075F-42E4-B6BF-E02FDF3AAD34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70705A1E-075F-42E4-B6BF-E02FDF3AAD34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70705A1E-075F-42E4-B6BF-E02FDF3AAD34}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {34F6EEC9-B56B-4A06-9424-B14FE892985F}
+	EndGlobalSection
+EndGlobal
