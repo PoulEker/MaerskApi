@@ -25,6 +25,7 @@ namespace MaerskApi.Controllers
         {
             Context = context;
             Logger = logger;
+            LoadCurrencyRates();
         }
 
         // GET: api/Bookings/5%2Cgbx
@@ -116,7 +117,7 @@ namespace MaerskApi.Controllers
                 booking.Timestamp = timestamp;
                 await Context.Booking.AddAsync(booking);
             }
-            catch 
+            catch
             {
                 Message = string.Format("Invalid parameteres : VoyageCode: {0}, Price: {1}, Currency: {2}, Timestamp: {3}.", voyagecode, price, currency, timestamp);
                 Logger.LogInformation(StandardLogger.LoggerLoader(LogId, controller, action, Message, StandardLogger.LoggingEnum.ParamNotvalid, DateTimeOffset.UtcNow));
@@ -176,5 +177,47 @@ namespace MaerskApi.Controllers
             }
             return new OkResult();
         }
+
+        private async void LoadCurrencyRates()
+        {
+            LogId = Guid.NewGuid();
+            string action = "LoadCurrencyRates";
+            CurrencyRate currencyrate;
+            List<CurrencyRate> currencyRates = new List<CurrencyRate>();
+            currencyRates = await Context.CurrencyRates.ToListAsync();
+            if (currencyRates.Count > 0) //Are loaded allready
+            {
+                return;
+            }
+            currencyrate = new CurrencyRate();
+            currencyrate.CurrencyRateSource = CurrencyType.GBP;
+            currencyrate.CurrencyRateTarget = CurrencyType.USD;
+            currencyrate.CurrencyRateSourcePrice = 1.00M;
+            currencyrate.CurrencyRateTargetPrice = 1.31M;
+            currencyRates.Add(currencyrate);
+            Context.CurrencyRates.Add(currencyrate);
+
+            currencyrate = new CurrencyRate();
+            currencyrate.CurrencyRateSource = CurrencyType.GBP;
+            currencyrate.CurrencyRateTarget = CurrencyType.EUR;
+            currencyrate.CurrencyRateSourcePrice = 1.00M;
+            currencyrate.CurrencyRateTargetPrice = 1.20M;
+            currencyRates.Add(currencyrate);
+            Context.CurrencyRates.Add(currencyrate);
+
+            currencyrate = new CurrencyRate();
+            currencyrate.CurrencyRateSource = CurrencyType.USD;
+            currencyrate.CurrencyRateTarget = CurrencyType.EUR;
+            currencyrate.CurrencyRateSourcePrice = 1.00M;
+            currencyrate.CurrencyRateTargetPrice = 0.92M;
+            currencyRates.Add(currencyrate);
+            Context.CurrencyRates.Add(currencyrate);
+
+            await Context.SaveChangesAsync();
+            Message = "Currency Rates Loaded.";
+            Logger.LogInformation(StandardLogger.LoggerLoader(LogId, controller, action, Message, StandardLogger.LoggingEnum.NoContent, DateTimeOffset.UtcNow));
+        }
+
+
     }
 }

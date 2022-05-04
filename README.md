@@ -1,12 +1,23 @@
 MaerskApi Poul Eker 04.05.2022.
 
-The solution consists of two projects, the API (MaerskApi) and the test (TestMaersk.Api)
+The solution consists of two projects, the API (MaerskApi) and the test (TestMaerskApi)
 
 On startup, the Api opens on a swagger page, from where it also can be tested, with the specified parameters.
 
+Currencies allowed:
+
+        GBP,
+        USD,
+        EUR
+
+Exhangerates for each of these are loaded manualy and are readonly.
+
+There are no other data preloaded.
 
 
-3. part Packages installed:
+
+
+3. party Packages installed:
 
 
 Swashbuckle.AspNet.Core 6.3.1	https://github.com/domaindrivendev/Swashbuckle.AspNet.Core
